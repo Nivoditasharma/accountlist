@@ -1,0 +1,28 @@
+<!-- accountList.html -->
+<template>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Industry</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <template for:each={accounts} for:item="account">
+                <tr key={account.Id}>
+                    <td>{account.Name}</td>
+                    <td>{account.Industry}</td>
+                    <td>
+                        <lightning-button-group>
+                            <lightning-button label="Delete" onclick={handleDelete} data-id={account.Id}></lightning-button>
+                            <lightning-button label="Edit" onclick={handleEdit} data-id={account.Id}></lightning-button>
+                            <lightning-button label="Change Owner" onclick={handleChangeOwner} data-id={account.Id}></lightning-button>
+                        </lightning-button-group>
+                    </td>
+                </tr>
+            </template>
+        </tbody>
+    </table>
+</template>
+
